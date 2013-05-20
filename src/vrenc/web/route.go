@@ -15,7 +15,7 @@ func (r *Route) matches(uri string) bool {
 	reg := regexp.MustCompile(":([^/]+)")
 	// replace ":name" with "(?P<name>)"
 	replace := reg.ReplaceAllString(r.pattern, "(?P<$1>[^/]+)")
-	reg = regexp.MustCompile(replace + "(/{0,1})$") // Allow leading slash
+	reg = regexp.MustCompile("^" + replace + "$")
 	// Does the route match?
 	if reg.MatchString(uri) {
 		// Find all parameters
