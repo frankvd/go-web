@@ -7,7 +7,7 @@ import (
 type Route struct {
 	method   string
 	pattern  string
-	Callback func(*Response, *Request)
+	Callback func(*Request, *Response)
 	params   map[string]string
 }
 

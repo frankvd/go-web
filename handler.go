@@ -25,7 +25,7 @@ func (handler *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if route != nil {
 		// Invoke route callback
 		req.params = route.params
-		route.Callback(res, req)
+		route.Callback(req, res)
 	} else {
 		// Return a 404 if no matching route was found
 		res.NotFound()

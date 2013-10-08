@@ -8,11 +8,11 @@ type Router struct {
 	routes []*Route
 }
 
-func (r *Router) Get(pattern string, callback func(res *Response, req *Request)) {
+func (r *Router) Get(pattern string, callback func(req *Request, res *Response)) {
 	r.Register("GET", pattern, callback)
 }
 
-func (r *Router) Register(method string, pattern string, callback func(res *Response, req *Request)) {
+func (r *Router) Register(method string, pattern string, callback func(req *Request, res *Response)) {
 	fmt.Println("route registered")
 	route := new(Route)
 	route.method = method
